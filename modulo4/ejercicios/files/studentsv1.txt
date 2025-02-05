@@ -1,0 +1,5 @@
+464,gian,BASICO
+121,gian,INTERMEDIO
+123,carlos,BASICO
+12,juan,BASICO
+
