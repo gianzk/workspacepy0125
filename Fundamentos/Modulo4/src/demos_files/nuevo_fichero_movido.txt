@@ -1,4 +1,0 @@
-Una línea 	con texto
-Otra línea con texto
-contenido a añadir
-más lineas

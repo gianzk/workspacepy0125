@@ -62,6 +62,22 @@ class Productos:
         cursor.execute(query)
         con.commit()
 
+##Agregar una clase catalogo extra, en este caso agregaré Región:
+class Region:
+    """ Tabla REGION: id, nombre, descripcion """
+    def create_table(self, conn: Connection):
+        query = """
+            CREATE TABLE IF NOT EXISTS REGION (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nombre VARCHAR(50) NOT NULL,
+                descripcion TEXT
+            );
+        """
+        cursor = conn.cursor()
+        cursor.execute(query)
+        conn.commit()
+
+
 class Ventas:
     """ Tabla VENTAS con múltiples relaciones """
 
@@ -77,7 +93,9 @@ class Ventas:
                 discount REAL NOT NULL,
                 profit REAL NOT NULL,
                 shipping_cost REAL NOT NULL,
-                order_priority VARCHAR(20) NOT NULL
+                order_priority VARCHAR(20) NOT NULL,
+                region_id INTEGER NOT NULL,
+                FOREIGN KEY (region_id) REFERENCES REGION(id)
             );
         """
         cursor = con.cursor()
